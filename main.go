@@ -2,16 +2,36 @@ package main
 
 import "fmt"
 
-const prefixSalutFrançais = "Bonjour, "
+// const anglais = "Anglais"
+const francais = "Français"
+const espagnol = "Espagnol"
 
-func Bonjour(name string) string {
-	if name != "" {
-		return prefixSalutFrançais + name
+const prefixeSalutAnglais = "Hello, "
+const prefixeSalutFrancais = "Bonjour, "
+const prefixeSalutEspagnol = "Hola, "
+
+func Bonjour(langue, name string) string {
+	if langue == francais {
+		if name == "" {
+			name = "monde"
+		}
+		return prefixeSalutFrancais + name
 	}
-	return prefixSalutFrançais + "tout le monde"
+
+	if langue == espagnol {
+		if name == "" {
+			name = "mundo"
+		}
+		return prefixeSalutEspagnol + name
+	}
+
+	if name == "" {
+		name = "world"
+	}
+	return prefixeSalutAnglais + name
 }
 
 func main() {
 	name := "Chris"
-	fmt.Println(Bonjour(name))
+	fmt.Println(Bonjour(espagnol, name))
 }
