@@ -2,8 +2,13 @@ package main
 
 import "fmt"
 
+const prefixSalutFrançais = "Bonjour, "
+
 func Bonjour(name string) string {
-	return "Bonjour " + name
+	if name != "" {
+		return prefixSalutFrançais + name
+	}
+	return prefixSalutFrançais + "tout le monde"
 }
 
 func main() {
