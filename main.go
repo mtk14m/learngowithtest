@@ -11,24 +11,25 @@ const prefixeSalutFrancais = "Bonjour, "
 const prefixeSalutEspagnol = "Hola, "
 
 func Bonjour(langue, name string) string {
-	if langue == francais {
-		if name == "" {
-			name = "monde"
-		}
-		return prefixeSalutFrancais + name
-	}
+	var prefixe, defaultName string
 
-	if langue == espagnol {
-		if name == "" {
-			name = "mundo"
-		}
-		return prefixeSalutEspagnol + name
+	switch langue {
+	case espagnol:
+		prefixe = prefixeSalutEspagnol
+		defaultName = "mundo"
+	case francais:
+		prefixe = prefixeSalutFrancais
+		defaultName = "monde"
+	default:
+		prefixe = prefixeSalutAnglais
+		defaultName = "world"
 	}
 
 	if name == "" {
-		name = "world"
+		name = defaultName
 	}
-	return prefixeSalutAnglais + name
+
+	return prefixe + name
 }
 
 func main() {
