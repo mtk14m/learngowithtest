@@ -1,4 +1,4 @@
-package arrays
+package collection
 
 func Somme(nombers [5]int) int {
 	somme := 0
