@@ -3,13 +3,16 @@ package collection
 import "testing"
 
 func TestSomme(t *testing.T) {
-	nombres := [5]int{1, 2, 3, 4, 5}
 
-	resultat := Somme(nombres)
-	attendu := 15
+	t.Run("Sommer une collection de n numbres", func(t *testing.T) {
+		nombres := []int{1, 2, 3}
 
-	if resultat != attendu {
-		t.Errorf("reçu %d, attendu %d, donnée %v", resultat, attendu, nombres)
-	}
+		resultat := Somme(nombres)
+		attendu := 6
+
+		if resultat != attendu {
+			t.Errorf("reçu %d, attendu %d, donnée %v", resultat, attendu, nombres)
+		}
+	})
 
 }
